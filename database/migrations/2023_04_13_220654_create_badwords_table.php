@@ -18,7 +18,7 @@ return new class extends Migration
             $table->boolean('is_regex')->default(false);
             $table->boolean('is_case_sensitive')->default(false);
             $table->boolean('is_whole_word')->default(false);
-            $table->boolean('is_enabled')->default(true);
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });
