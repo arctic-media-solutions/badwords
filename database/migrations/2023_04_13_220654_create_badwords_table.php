@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('badwords', function (Blueprint $table) {
+        Schema::create('bad_words', function (Blueprint $table) {
             $table->id();
             $table->string('word');
             $table->foreignId('category_id')->constrained();
