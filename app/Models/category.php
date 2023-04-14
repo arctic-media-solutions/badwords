@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\BadWord;
 
 class Category extends Model
 {
@@ -18,6 +19,6 @@ class Category extends Model
 
     public function badwords()
     {
-        return $this->hasMany(badword::class);
+        return $this->hasMany(BadWord::class);
     }
 }
