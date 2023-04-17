@@ -38,18 +38,25 @@ class CheckWordsController extends Controller
             })
             ->get();
     
-        if ($results->isEmpty()) {
-            return response()->json(['message' => 'No bad words found.'], 200);
-        }
-    
-        $formattedResults = $results->map(function ($result) {
-            return [
-                'category' => $result->category->name,
-                'word' => $result->word,
-            ];
-        });
-    
-        return response()->json(['bad_words' => $formattedResults], 200);
+if ($results->isEmpty()) {
+    return response()->json([
+        'success' => true,
+        'bad_words' => []
+    ], 200);
+}
+
+$formattedResults = $results->map(function ($result) {
+    return [
+        'category' => $result->category->name,
+        'word' => $result->word,
+    ];
+});
+
+return response()->json([
+    'success' => false,
+    'bad_words' => $formattedResults
+], 200);
+
     }
     
     
